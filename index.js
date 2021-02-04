@@ -1,6 +1,7 @@
 const fs = require("fs");
 const inquirer = require("inquirer");
 const render = require("./src/renderTeamPage");
+const { Employee, Manager, Engineer, Intern } = require("./lib/Employee");
 
 /* Questions to ask to construct manager data */
 const managerQuestions = [
@@ -61,7 +62,7 @@ const employeeQuestions = [
   {
     type: "input",
     message: "Where does the intern go to school?",
-    name: "github",
+    name: "school",
     when: answers => answers.choice === "Intern"
   },
 ];
@@ -95,11 +96,11 @@ function employeePrompt(dir) {
         let newEmployee;
         switch (answers.choice) {
           case "Engineer":
-            /* TODO: Construct Engineer object */
+            newEmployee = new Engineer(answers.name, answers.id, answers.email, answers.github);
             employeeData.engineers.push(newEmployee);
             break;
           case "Intern":
-            /* TODO: Construct Intern object */
+            newEmployee = new Intern(answers.name, answers.id, answers.email, answers.school);
             employeeData.interns.push(newEmployee);
             break;
         }
@@ -108,7 +109,6 @@ function employeePrompt(dir) {
       } else {
         /* Save files and complete */
         saveFiles(dir);
-        console.log(employeeData);
       }
     });
 }
@@ -126,8 +126,7 @@ function init() {
   /* Prompt for manager data */
   inquirer.prompt(managerQuestions)
     .then(answers => {
-      let manager;
-      /* TODO: Construct Manager object */
+      let manager = new Manager(answers.name, answers.id, answers.email, answers.office);
       employeeData.manager = manager;
 
       /* Prompt for additional employee data, saving data when complete*/
