@@ -4,7 +4,7 @@
   "description": "Command-line application for generating a team HTML file.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -17,7 +17,9 @@
   },
   "homepage": "https://github.com/malenchite/team-profile-generator#readme",
   "dependencies": {
-    "inquirer": "^7.3.3",
+    "inquirer": "^7.3.3"
+  },
+  "devDependencies": {
     "jest": "^26.6.3"
   }
 }
