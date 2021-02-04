@@ -18,7 +18,7 @@ function renderEmployeeCard(employee) {
       break;
     case "Engineer":
       icon = "glasses";
-      addData = `GitHub: ${employee.getGithub()}`;
+      addData = `GitHub: <a href="https://github.com/${employee.getGithub()}" target="_blank">${employee.getGithub()}>`;
       break;
     case "Intern":
       icon = "user-graduate";
