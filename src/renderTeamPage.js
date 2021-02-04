@@ -18,7 +18,7 @@ function renderEmployeeCard(employee) {
       break;
     case "Engineer":
       icon = "glasses";
-      addData = `GitHub: <a href="https://github.com/${employee.getGithub()}" target="_blank">${employee.getGithub()}>`;
+      addData = `GitHub: <a href="https://github.com/${employee.getGithub()}" target="_blank">${employee.getGithub()}</a>`;
       break;
     case "Intern":
       icon = "user-graduate";
@@ -31,52 +31,53 @@ function renderEmployeeCard(employee) {
 
   /* Template for employee card */
   return `
-        < div class="col-lg-4 mb-4" >
-          <div class="card employee-card">
-            <div class="card-header employee-header">
-              <h4>${employee.getName()}</h4>
-              <h5><i class="fas fa-${icon}"></i> ${employee.getRole()}</h5>
+      <div class="col-lg-4 mb-4">
+        <div class="card employee-card">
+          <div class="card-header employee-header">
+            <h4>${employee.getName()}</h4>
+            <h5><i class="fas fa-${icon}"></i> ${employee.getRole()}</h5>
+          </div>
+          <div class="card-body">
+            <div class="employee-entry">
+              ID: ${employee.getId()}
             </div>
-            <div class="card-body">
-              <div class="employee-entry">
-                ID: ${employee.getId()}
-              </div>
-              <div class="employee-entry">
-                Email: <a href="mailto:${employee.getEmail()}">${employee.getEmail()}</a>
-              </div>
-              <div class="employee-entry">
-                ${addData}
-              </div>
+            <div class="employee-entry">
+              Email: <a href="mailto:${employee.getEmail()}">${employee.getEmail()}</a>
             </div>
-          </div>`;
+            <div class="employee-entry">
+              ${addData}
+            </div>
+          </div>
+        </div>
+      </div>`;
 }
 
 /* Renders the HTML page based on user input data */
 function renderTeamPage(data) {
-  const baseStart = `< !DOCTYPE html >
-        <html lang="en">
+  const baseStart = `<!DOCTYPE html>
+<html lang="en">
 
-          <head>
-            <meta charset="UTF-8" />
-            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-            <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-            <title>My Team Roster</title>
-            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-              <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-                integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
-              <link rel="stylesheet" href="style.css">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>My Team Roster</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <link rel="stylesheet" href="style.css">
 </head>
 
-              <body>
-                <header class="jumbotron text-center my-team-header">
-                  <h1>My Team Roster</h1>
-                </header>
-                <main class="container">`;
+<body>
+  <header class="jumbotron text-center my-team-header">
+    <h1>My Team Roster</h1>
+  </header>
+  <main class="container">`;
 
   const baseEnd = `
   </main>
-              </body>
+ </body>
 </html>`;
 
   let employeeCards = "";
@@ -103,6 +104,11 @@ function renderTeamPage(data) {
   /* Add intern card(s) */
   data.interns.forEach(employee => processCol(employee));
 
+  /* Render final row */
+  if (currentRow != "") {
+    employeeCards += renderRow(currentRow);
+  }
+
   return baseStart + employeeCards + baseEnd;
 }
 
@@ -111,23 +117,23 @@ function renderCSS() {
   return `
 /* Style for main header */
 .my-team-header {
-              background - color: rgb(0, 46, 0);
+  background-color: rgb(0, 46, 0);
   color: white;
 }
 
 /* Styling for each employee card */
 .employee-card {
-              border - radius: 5px;
+  border-radius: 5px;
   box-shadow: 3px 3px 7px 1px rgba(0,0,0,0.64);
 }
 
 .employee-header {
-              background - color: darkgreen;
+  background-color: darkgreen;
   color:white;
 }
 
 .employee-entry {
-              border: 1px solid darkgray;
+  border: 1px solid darkgray;
   border-radius: 3px;
   margin: 3px 0px;
   padding: 2px 5px;
