@@ -20,7 +20,13 @@ npm install
 ```
 
 ## Usage
-Requires node.js to run. Execute with 'node index.js'. When complete, the HTML and CSS files will be saved to the ./dist directory.
+Requires node.js to run. Execute with 
+
+```
+node index.js
+```
+
+When complete, the HTML and CSS files will be saved to the ./dist directory.
 
 [Walkthrough Video](#)
 
