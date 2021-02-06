@@ -17,6 +17,12 @@ describe("Intern", () => {
     obj = new Employee.Intern(name, id, email, school);
   });
 
+  describe("Initialization", () => {
+    it("Should create an object that is a child of Employee", () => {
+      expect(obj instanceof Employee.Employee).toEqual(true);
+    });
+  });
+
   describe("Properties", () => {
     it("Should return name that was set during construction", () => {
       expect(obj.name).toEqual(name);
