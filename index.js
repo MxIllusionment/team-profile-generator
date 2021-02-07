@@ -1,6 +1,7 @@
 const fs = require("fs");
 const inquirer = require("inquirer");
 const render = require("./src/renderTeamPage");
+const valid = require("./src/validation");
 const { Employee, Manager, Engineer, Intern } = require("./lib/Employee");
 
 /* Questions to ask to construct manager data */
@@ -8,22 +9,26 @@ const managerQuestions = [
   {
     type: "input",
     message: "What is the team manager's name?",
-    name: "name"
+    name: "name",
+    validate: valid.name
   },
   {
     type: "input",
     message: "What is the team manager's employee ID?",
-    name: "id"
+    name: "id",
+    validate: valid.id
   },
   {
     type: "input",
     message: "What is the team manager's email address?",
-    name: "email"
+    name: "email",
+    validate: valid.email
   },
   {
     type: "input",
     message: "What is the team manager's office number?",
-    name: "office"
+    name: "office",
+    validate: valid.officeNumber
   },
 ];
 
@@ -39,30 +44,35 @@ const employeeQuestions = [
     type: "input",
     message: "What is the employee's name?",
     name: "name",
+    validate: valid.name,
     when: answers => answers.choice !== "Finish"
   },
   {
     type: "input",
     message: "What is the employee's ID?",
     name: "id",
+    validate: valid.id,
     when: answers => answers.choice !== "Finish"
   },
   {
     type: "input",
     message: "What is the employee's email address?",
     name: "email",
+    validate: valid.email,
     when: answers => answers.choice !== "Finish"
   },
   {
     type: "input",
     message: "What is the engineer's GitHub user name?",
     name: "github",
+    validate: valid.github,
     when: answers => answers.choice === "Engineer"
   },
   {
     type: "input",
     message: "Where does the intern go to school?",
     name: "school",
+    validate: valid.school,
     when: answers => answers.choice === "Intern"
   },
 ];

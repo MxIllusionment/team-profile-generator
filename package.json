@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/malenchite/team-profile-generator#readme",
   "dependencies": {
+    "email-validator": "^2.0.4",
+    "github-username-regex": "^1.0.0",
     "inquirer": "^7.3.3"
   },
   "devDependencies": {
