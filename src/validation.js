@@ -77,7 +77,7 @@ function github(string) {
   if (!notEmpty(string)) {
     return "GitHub user name cannot be empty";
   } else if (!githubRegex.test(string)) {
-    return "GitHub username must be valid";
+    return "GitHub user name must be valid";
   }
   return true;
 }
