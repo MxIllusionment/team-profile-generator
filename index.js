@@ -1,6 +1,6 @@
 const fs = require("fs");
 const inquirer = require("inquirer");
-const render = require("./src/renderTeamPage");
+const render = require("./src/render");
 const valid = require("./src/validation");
 const { Employee, Manager, Engineer, Intern } = require("./lib/Employee");
 
