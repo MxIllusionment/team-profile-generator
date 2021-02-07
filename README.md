@@ -48,4 +48,7 @@ Questions about the project? You can contact me at malenchite@gmail.com or check
 
 ## Credits
 [Inquirer](https://www.npmjs.com/package/inquirer) node.js package  
-[Jest](https://www.npmjs.com/package/jest) node.js package
+[Jest](https://www.npmjs.com/package/jest) node.js package  
+[github-username-regex](https://www.npmjs.com/package/github-username-regex) node.js package  
+[email-validator](https://www.npmjs.com/package/email-validator) node.js package
+
