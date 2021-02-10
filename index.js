@@ -100,8 +100,8 @@ function saveFiles(dir) {
 }
 
 /* Function to prompt for employee data, recursively called for additional employees */
-function employeePrompt(dir) {
-  inquirer.prompt(employeeQuestions)
+function employeePrompt() {
+  return inquirer.prompt(employeeQuestions)
     .then(answers => {
       /* Process new employee data */
       if (answers.choice !== "Finish") {
@@ -117,10 +117,7 @@ function employeePrompt(dir) {
             break;
         }
         /* Ask if user wants to add another employee */
-        employeePrompt(dir);
-      } else {
-        /* Save files and complete */
-        saveFiles(dir);
+        return employeePrompt();
       }
     });
 }
@@ -128,7 +125,7 @@ function employeePrompt(dir) {
 /* Initializes app and starts prompt */
 function init() {
   /* Directory to save data to */
-  var dir = "./dist";
+  const dir = "./dist";
 
   // Create output directory if it doesn't already exist
   if (!fs.existsSync(dir)) {
@@ -142,9 +139,9 @@ function init() {
       employeeData.manager = manager;
 
       /* Prompt for additional employee data, saving data when complete*/
-      employeePrompt(dir);
+      employeePrompt()
+        .then(() => saveFiles(dir));
     });
-
 }
 
 init();
