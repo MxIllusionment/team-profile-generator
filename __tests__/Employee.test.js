@@ -12,7 +12,7 @@ describe("Employee", () => {
     id = crypto.randomBytes(8).toString("hex");
     email = crypto.randomBytes(10).toString("hex");
 
-    obj = new Employee.Employee(name, id, email);
+    obj = new Employee(name, id, email);
   });
 
   describe("Properties", () => {

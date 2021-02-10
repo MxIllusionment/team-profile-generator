@@ -1,4 +1,5 @@
 const Employee = require("../lib/Employee");
+const Engineer = require("../lib/Engineer");
 const crypto = require("crypto");
 
 describe("Engineer", () => {
@@ -14,12 +15,12 @@ describe("Engineer", () => {
     email = crypto.randomBytes(10).toString("hex");
     github = crypto.randomBytes(10).toString("hex");
 
-    obj = new Employee.Engineer(name, id, email, github);
+    obj = new Engineer(name, id, email, github);
   });
 
   describe("Initialization", () => {
     it("Should create an object that is a child of Employee", () => {
-      expect(obj instanceof Employee.Employee).toEqual(true);
+      expect(obj instanceof Employee).toEqual(true);
     });
   });
 

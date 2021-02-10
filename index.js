@@ -2,7 +2,9 @@ const fs = require("fs");
 const inquirer = require("inquirer");
 const render = require("./src/render");
 const valid = require("./src/validation");
-const { Employee, Manager, Engineer, Intern } = require("./lib/Employee");
+const Manager = require("./lib/Manager");
+const Engineer = require("./lib/Engineer");
+const Intern = require("./lib/Intern");
 
 /* Questions to ask to construct manager data */
 const managerQuestions = [
