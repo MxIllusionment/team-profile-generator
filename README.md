@@ -28,7 +28,7 @@ node index.js
 
 When complete, the HTML and CSS files will be saved to the ./dist directory.
 
-[Walkthrough Video](#)
+[Walkthrough Video](https://drive.google.com/file/d/1aV0fAvxTaSshK_FVR1aI1xPnTXvLbxwr/view?usp=sharing)
 
 ## Example
 ![Screenshot of example output](assets/images/example-screenshot.png)  
