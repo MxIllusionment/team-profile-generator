@@ -12,6 +12,7 @@ Makes uses of node.js, the Inquirer package, and the Jest package for class test
 * [Testing](#Testing)
 * [License](#License)
 * [Questions](#Questions)
+* [Credits](#Credits)
 
 ## Installation
 To install, run the following command:  
